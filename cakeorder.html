@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cake Shop</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+body{
+    font-family:Arial;
+    text-align:center;
+}
+
+input{
+    margin:10px;
+}
+
+#total{
+    color:red;
+    font-size:25px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CAKE SHOP</h2>
+
+Vanilla Cake (Rs.250):
+<input type="number" id="vanilla" value="0"><br>
+
+Black Forest Cake (Rs.350):
+<input type="number" id="black" value="0"><br>
+
+Red Velvet Cake (Rs.450):
+<input type="number" id="red" value="0"><br>
+
+<button id="order">Place Order</button>
+
+<h3 id="total">Total Price : Rs.0</h3>
+
+<script>
+$(document).ready(function(){
+
+$("#order").click(function(){
+
+    let vanilla = $("#vanilla").val()*250;
+    let black = $("#black").val()*350;
+    let red = $("#red").val()*450;
+
+    let total = vanilla + black + red;
+
+    $("#total").html("Total Price : Rs."+total);
+});
+
+});
+</script>
+
+</body>
+</html>

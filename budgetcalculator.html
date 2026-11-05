@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align:center;
+        }
+
+        .box{
+            width:120px;
+            height:60px;
+            color:white;
+            display:inline-block;
+            margin:10px;
+            padding-top:10px;
+        }
+
+        .rent{background:blue;}
+        .acc{background:green;}
+        .emer{background:dodgerblue;}
+        .save{background:deeppink;}
+
+        input{
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Budget Calculator App</h2>
+
+Amount:
+<input type="number" id="amount"><br><br>
+
+Room Rent(%):
+<input type="number" id="rent" value="40">
+
+Accessories(%):
+<input type="number" id="acc" value="20">
+
+Emergency(%):
+<input type="number" id="emer" value="20">
+
+Saving(%):
+<input type="number" id="save" value="20">
+
+<br><br>
+
+<button id="calc">Evaluate My Money</button>
+
+<br><br>
+
+<div class="box rent" id="rentAmt">Room Rent</div>
+<div class="box acc" id="accAmt">Accessories</div>
+<div class="box emer" id="emerAmt">Emergency</div>
+<div class="box save" id="saveAmt">Saving</div>
+
+<script>
+$(document).ready(function(){
+
+    $("#calc").click(function(){
+
+        let amount = parseFloat($("#amount").val());
+
+        let r = parseFloat($("#rent").val());
+        let a = parseFloat($("#acc").val());
+        let e = parseFloat($("#emer").val());
+        let s = parseFloat($("#save").val());
+
+        if((r+a+e+s)!=100){
+            alert("Percentage should total 100%");
+            return;
+        }
+
+        $("#rentAmt").html("Room Rent<br>Rs."+(amount*r/100));
+        $("#accAmt").html("Accessories<br>Rs."+(amount*a/100));
+        $("#emerAmt").html("Emergency<br>Rs."+(amount*e/100));
+        $("#saveAmt").html("Saving<br>Rs."+(amount*s/100));
+    });
+
+});
+</script>
+
+</body>
+</html>

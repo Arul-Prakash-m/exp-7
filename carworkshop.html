@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Car Workshop</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+#car{
+    width:200px;
+    height:80px;
+    background:limegreen;
+    margin:auto;
+    position:relative;
+}
+
+#top{
+    width:80px;
+    height:40px;
+    background:limegreen;
+    margin:auto;
+}
+
+.tyre{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:black;
+    display:inline-block;
+    margin:10px;
+}
+
+button{
+    margin:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Car Workshop</h2>
+
+<div id="top"></div>
+<div id="car"></div>
+
+<div class="tyre"></div>
+<div class="tyre"></div>
+
+<br><br>
+
+<button id="color">Change Car Color</button>
+<button id="glass">Change Glass Tint</button>
+<button id="big">Tyre Size Increase</button>
+<button id="small">Tyre Size Decrease</button>
+<button id="reset">Reset</button>
+
+<script>
+$(document).ready(function(){
+
+$("#color").click(function(){
+    $("#car,#top").css("background","orange");
+});
+
+$("#glass").click(function(){
+    $("#top").css("background","skyblue");
+});
+
+$("#big").click(function(){
+    $(".tyre").css({
+        "width":"60px",
+        "height":"60px"
+    });
+});
+
+$("#small").click(function(){
+    $(".tyre").css({
+        "width":"30px",
+        "height":"30px"
+    });
+});
+
+$("#reset").click(function(){
+    $("#car,#top").css("background","limegreen");
+
+    $(".tyre").css({
+        "width":"40px",
+        "height":"40px"
+    });
+});
+
+});
+</script>
+
+</body>
+</html>
